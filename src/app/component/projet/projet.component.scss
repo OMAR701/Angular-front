@@ -1,0 +1,42 @@
+.members-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  position: relative; /* Add position relative */
+}
+
+.member-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.member:hover .member-image {
+  transform: scale(1.1);
+}
+
+.member-hover {
+  display: none;
+  position: absolute;
+  top: -40px; /* Adjust the top position to fit the circle */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  border-radius: 50%; /* Set border-radius to 50% for a circular shape */
+  background-color: #333;
+  color: #fff;
+  font-size: 12px;
+  transition: opacity 0.3s;
+}
+
+.member:hover .member-hover {
+  display: block;
+  opacity: 1;
+}
