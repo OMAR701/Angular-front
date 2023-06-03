@@ -19,6 +19,14 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
+    path: '/component/labo',
+    title: 'Labo',
+    icon: 'bi bi-grid-fill',
+    class: '',
+    extralink: false,
+    submenu: []
+  },
+  {
     path: '/component/projet',
     title: 'Projects',
     icon: 'bi bi-patch-check',
@@ -27,7 +35,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: []
   },
   {
-    path: '/component/card',
+    path: '/component/etablissment',
     title: 'Etablissment',
     icon: 'bi bi-building-fill',
     class: '',
@@ -49,15 +57,15 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     extralink: false,
     submenu: []
-  },
-  {
-    path: '/component/badges',
-    title: 'Projects',
-    icon: 'bi bi-patch-check',
-    class: '',
-    extralink: false,
-    submenu: []
-  }
+   }//,
+  // {
+  //   path: '/component/badges',
+  //   title: 'Projects',
+  //   icon: 'bi bi-patch-check',
+  //   class: '',
+  //   extralink: false,
+  //   submenu: []
+  // }
 
 
   // {

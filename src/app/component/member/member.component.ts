@@ -1,23 +1,27 @@
 import { Component } from '@angular/core';
-import { Product, TopSelling, TableRows, Employee } from './table-data';
+import { Project,Member, members } from './table-data';
 import { Router ,ActivatedRoute } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
   standalone: true,
-  imports: [ NgFor, NgIf],
+  imports: [ NgFor, NgIf,CommonModule],
 })
 export class MemberComponent {
-  opSelling: Product[] = [];
+  members: Member[] = [];
+  currentPage: number = 1; 
+  itemsPerPage: number = 10;
 
-  topSelling: Product[];
-  trow: TableRows[];
 
   constructor(private router: Router,private route: ActivatedRoute) {
-    this.topSelling = TopSelling;
-    this.trow = Employee;
+    this.members = members;
   }
 
   navigateToAddMember() {

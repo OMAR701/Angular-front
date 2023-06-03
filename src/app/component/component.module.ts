@@ -15,6 +15,12 @@ import { RegisterMemberComponent } from './register-member/register-member.compo
 import { DotationComponent } from './dotation/dotation.component';
 import { AddMemberComponent } from './add-member/add-member.component';
 import { AddDotationComponent } from './add-dotation/add-dotation.component';
+import { ProjetDetailsComponent } from './projet-details/projet-details.component';
+import { AddProjetComponent } from './add-projet/add-projet.component';
+import { LaboComponent } from './labo/labo.component';
+import { AddLaboComponent } from './add-labo/add-labo.component';
+import { AddEtablissmentComponent } from './add-etablissment/add-etablissment.component';
+import { LaboDetailsComponent } from './labo-details/labo-details.component';
 
 @NgModule({
   imports: [
@@ -28,15 +34,20 @@ import { AddDotationComponent } from './add-dotation/add-dotation.component';
     TableComponent,
     MemberComponent,
     EtablissementComponent,
-    ProjetComponent,
     DotationComponent,
     AddMemberComponent,
-    AddDotationComponent
+    ProjetDetailsComponent,
+    AddProjetComponent,
+    LaboComponent,
+    AddLaboComponent,
+    AddEtablissmentComponent,
 
 
   ],
   declarations: [
-    RegisterMemberComponent,
+    ProjetComponent,
+    LaboDetailsComponent,
+    AddDotationComponent
 
   ],
 })

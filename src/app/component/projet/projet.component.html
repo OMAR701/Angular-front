@@ -1,113 +1,47 @@
 <h4 class="font-medium mb-3">Projects</h4>
-<!-- Row -->
-<div class="row">
-  <!-- column -->
-  <div class="col-lg-3 col-md-6">
-    <!-- Card -->
-    <!-- ---------------------
-                      start Card title
-                  ---------------- -->
-    <div class="card">
-      <img
-        class="card-img-top img-responsive"
-        src="assets/images/bg/bg1.jpg"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <h4 class="card-title">Projet 1</h4>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="javascript:void(0)" class="btn btn-primary">Read More</a>
-      </div>
-    </div>
-    <!-- ---------------------
-                      end Card title
-                  ---------------- -->
-    <!-- Card -->
-  </div>
-  <!-- column -->
-  <div class="col-lg-3 col-md-6">
-    <!-- Card -->
-    <!-- ---------------------
-                      start Card title
-                  ---------------- -->
-    <div class="card">
-      <img
-        class="card-img-top img-responsive"
-        src="assets/images/bg/bg2.jpg"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <h4 class="card-title">Projet 2</h4>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="javascript:void(0)" class="btn btn-primary">Read More</a>
-      </div>
-    </div>
-    <!-- ---------------------
-                      end Card title
-                  ---------------- -->
-    <!-- Card -->
-  </div>
-  <!-- column -->
-  <div class="col-lg-3 col-md-6">
-    <!-- Card -->
-    <!-- ---------------------
-                      start Card title
-                  ---------------- -->
-    <div class="card">
-      <img
-        class="card-img-top img-responsive"
-        src="assets/images/bg/bg3.jpg"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <h4 class="card-title">Projet 3</h4>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="javascript:void(0)" class="btn btn-primary">Read More</a>
-      </div>
-    </div>
-    <!-- ---------------------
-                      end Card title
-                  ---------------- -->
-    <!-- Card -->
-  </div>
-  <!-- column -->
-  <div class="col-lg-3 col-md-6">
-    <!-- Card -->
-    <!-- ---------------------
-                      start Card title
-                  ---------------- -->
-    <div class="card">
-      <img
-        class="card-img-top img-responsive"
-        src="assets/images/bg/bg4.jpg"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <h4 class="card-title">Projet 4</h4>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="javascript:void(0)" class="btn btn-primary">Read More</a>
-      </div>
-    </div>
-    <!-- ---------------------
-                      end Card title
-                  ---------------- -->
-    <!-- Card -->
-  </div>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <button class="btn btn-primary" (click)="navigateToAddProject()">Add New Project</button>
 </div>
-<!-- Row -->
 
-
-
+<!-- Table -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>School</th>
+      <th>Labo</th>
+      <th>Responsable</th>
+      <th>Members</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.title }}</td>
+      <td>{{ project.school }}</td>
+      <td>{{ project.labo }}</td>
+      <td>
+        <div>{{ project.members[0].name }}</div>
+      </td>
+      <td>
+        <div class="members-container">
+          <div class="member" *ngFor="let member of project.members | slice:0:6">
+            <img class="member-image" [src]="member.image" alt="{{ member.name }}">
+            <div class="member-hover">{{ member.name }}</div>
+          </div>
+          <div class="member" *ngIf="project.members.length > 6">
+            <span class="remaining-members">+{{ project.members.length - 6 }}</span>
+          </div>
+        </div>
+      </td>
+      
+      <td>
+        <div class="d-flex ">
+          <button class="btn btn-danger" (click)="deleteProject(project.id)">Delete</button>
+          <button class="btn btn-primary ms-3" (click)="modifyProject(project.id)">Modify</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
